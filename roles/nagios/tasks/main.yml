@@ -1,0 +1,14 @@
+- name: Installing Nagios on Ubuntu 
+  apt:
+    name: nagios4
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: Installing Nagios on CentOS
+  dnf:
+    name: 
+        - nagios
+    update_cache: yes
+    state: latest
+  when: ansible_distribution == "CentOS"
